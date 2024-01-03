@@ -1,5 +1,6 @@
 # FasTracks-FE
 
+
 FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata for a given workout type.
 
 ## Getting Started
