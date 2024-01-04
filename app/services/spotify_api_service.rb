@@ -31,7 +31,7 @@ class SpotifyApiService
 
   def self.get_user(token)
     begin
-      response = conn.get("/me") do |req|
+      response = conn.get("me") do |req|
         req.headers["Authorization"] = "Bearer #{token}"
       end
 
@@ -45,7 +45,7 @@ class SpotifyApiService
 
   def self.get_genres(token)
     begin
-      response = conn.get("/recommendations/available-genre-seeds") do |req|
+      response = conn.get("recommendations/available-genre-seeds") do |req|
         req.headers["Authorization"] = "Bearer #{token}"
       end
 
@@ -59,17 +59,17 @@ class SpotifyApiService
 
   def self.account_connection
     Faraday.new(url: "https://accounts.spotify.com/") do |conn|
-      conn.request :url_encoded
+      # conn.request :url_encoded
     end
   end
 
   def self.conn
-    Faraday.new(url: "https://api.spotify.com/v1") do |conn|
+    Faraday.new(url: "https://api.spotify.com/v1/") do |conn|
       conn.request :url_encoded
     end
   end
 
   def self.response_conversion(response)
-    {status: response.status, data: JSON.parse(response.body, symbolize_names: true)[:data]}
+    {status: response.status, data: JSON.parse(response.body, symbolize_names: true)}
   end
 end

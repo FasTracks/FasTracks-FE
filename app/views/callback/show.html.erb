@@ -3,7 +3,7 @@
 </h3>
 <%= form_with url: "/playlists", method: "post" do |f| %>
   <%= f.label "Genre" %>
-  <%= f.select :genre, options_for_select(%w[Strength-Training Cardio HIIT Yoga Recovery]) %>
+  <%= f.select :genre, options_for_select(@genres.map(&:capitalize)) %>
   <%= f.label "Workout Type" %>
   <%= f.select :workout, options_for_select(%w[Strength-Training Cardio HIIT Yoga Recovery]) %>
 <% end %>

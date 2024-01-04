@@ -21,7 +21,11 @@ describe "Spotify API service" do
     expect(response).to be_a Hash
   end
 
-  xit "retrieves a user's profile" do
+  it "retrieves genres" do
+    response = SpotifyApiService.get_genres(
+      "BQAMQGU7Tkb7RY06tdyO4Tqg5cP7EfdLUV0Yp7eSSU8i-SmfLHnwsiXgQ0xSIhIeqlbhKlJpVfZxbf8bOdkDP84gFwVQLgwtQjpbmF3F1aHzTPajCHcrzkAQ6WXrTake1DYpzduC0hIZyI_ASO9Ml1bliZMnqPYWTRWFYbMd18opuNZnDgBKCTtN0PH6zC0yvDyJsos4Or7l6tJ-7l2OCg")
 
+    expect(response).to be_a Hash
+    expect(response[:data][:genres]).to be_a Array
   end
 end
