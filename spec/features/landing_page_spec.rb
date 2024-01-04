@@ -32,12 +32,11 @@ RSpec.describe 'landing page' do
 
       click_button('Connect to Spotify to Create a Playlist')
 
-      within('.modal') do
+      within('.modal-body') do
         click_link('Authorize on Spotify')
       end
 
-      expect(current_path).to eq("https://accounts.spotify.com/authorize?client_id=ENV[]&response_type=code&redirect_uri=http://localhost:5000/callback")
+      expect(current_path).to eq("/authorize")
     end
-
   end
 end
