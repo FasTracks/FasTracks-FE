@@ -10,7 +10,7 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
+    <div class="modal" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -24,7 +24,7 @@
             <!-- Add content for Spotify authentication here -->
             <p>Connect your Spotify account to access more features.</p>
             <!-- Example: Redirect button/link for Spotify authentication -->
-            <a href="YOUR_SPOTIFY_AUTH_LINK" class="btn btn-success">Authorize on Spotify</a>
+            <a href="https://accounts.spotify.com/authorize?client_id=#&response_type=code&redirect_uri=http://localhost:5000/callback" class="btn btn-success">Authorize on Spotify</a>
           </div>
 
           <div class="modal-footer">
