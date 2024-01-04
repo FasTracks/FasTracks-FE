@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get "callback", to: "callback#show"
+
+  post "playlist", to: "playlist#create"
+  get "playlist", to: "playlist#show"
 end

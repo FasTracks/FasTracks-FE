@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>FasTracksFe</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
