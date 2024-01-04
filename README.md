@@ -19,6 +19,14 @@ This front end portion will conduct OAuth authorization and then pass the data t
 
 1.  The front end will authorize for the Spotify user using the following scopes:
    - `playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private`
+1.  A user access token will be requested after obtaining an authorization token
+   -  This is a background task that will be kicked off once landed on the callback page
+1.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
+   -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
+1.  The expected response from the backend server should be a JSON body response with status code `200`
+   -  ```json
+      test
+      ```
 
 ### Installing
 
