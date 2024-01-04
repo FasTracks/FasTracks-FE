@@ -1,1 +1,27 @@
-<p>hi</p>
+<!-- Button to trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#spotifyModal">
+  Connect to Spotify to Create a Playlist
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="spotifyModal" tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="spotifyModalLabel">Spotify Authorization</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add content for Spotify authentication here -->
+        <p>Connect your Spotify account to access more features.</p>
+        <!-- Example: Redirect button/link for Spotify authentication -->
+        <a href="YOUR_SPOTIFY_AUTH_LINK" class="btn btn-success">Authorize on Spotify</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
