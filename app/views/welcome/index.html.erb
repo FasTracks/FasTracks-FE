@@ -1,17 +1,21 @@
+<div class="container-fluid">
+  <h1>FasTracks</h1>
+</div>
+
 <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
   <div class="text-center">
     <!-- Button to trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#spotifyModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#spotifyModal">
       Connect to Spotify to Create a Playlist
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="spotifyModal" tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="spotifyModalLabel">Spotify Authorization</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -22,11 +26,13 @@
             <!-- Example: Redirect button/link for Spotify authentication -->
             <a href="YOUR_SPOTIFY_AUTH_LINK" class="btn btn-success">Authorize on Spotify</a>
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
-    </div>
+
+  </div>
 </div>
