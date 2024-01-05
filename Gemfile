@@ -64,7 +64,7 @@ group :development, :test do
   gem "dartsass-sprockets"
   gem "jquery-rails"
   gem "bootstrap", "~> 5.3.2"
-  gem 'selenium-webdriver'
+  gem "selenium-webdriver"
 end
 
 group :development do

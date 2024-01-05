@@ -1,4 +1,4 @@
-require './config/spotify_credentials'
+require "./config/spotify_credentials"
 
 class WelcomeController < ApplicationController
   def index
