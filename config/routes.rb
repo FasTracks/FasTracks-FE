@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "welcome#index"
 
-  get "callback", to: "callback#show"
+  get "/callback", to: "callback#callback"
 
-  post "playlist", to: "playlist#create"
-  get "playlist", to: "playlist#show"
+  get "/generate_playlist", to: "playlist#generate"
+  post "/playlist", to: "playlist#create"
+  get "/playlist", to: "playlist#show"
 end

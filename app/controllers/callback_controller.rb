@@ -1,16 +1,9 @@
 class CallbackController < ApplicationController
-  def show
+  def callback
     auth_code = params[:code]  # the auth code is passed in the URL after the user has been redirected back to the app
     # auth code needs to be exchanged for an access token
     access_token = SpotifyApiService.request_token(auth_code)[:data][:access_token]
 
-    if !access_token.nil?
-      flash[:notice] = "Spotify authorization successful."
-      genre_response = SpotifyApiService.get_genres(access_token)
-      @genres = genre_response[:data][:genres]
-    else
-      flash[:error] = "Spotify authorization failed. #{params[:error]}"
-      redirect_to root_path
-    end
+    redirect_to "/generate_playlist?tkn=#{access_token}"
   end
 end
