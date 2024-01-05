@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'callback', to: 'callback#show'
-  get '/authorize', to: 'callback#show'
 end

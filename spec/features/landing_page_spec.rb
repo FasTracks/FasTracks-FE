@@ -27,7 +27,9 @@ RSpec.describe 'landing page' do
       end
     end
 
-    it 'redirects you to log in to Spotify when you click on Authorize on Spotify' do
+    it 'redirects you to log in to Spotify when you click on Authorize on Spotify', js: true do
+      id = Rails.application.credentials.spotify[:user_id]
+      pw = Rails.application.credentials.spotify[:password]
       visit root_path
 
       click_button('Connect to Spotify to Create a Playlist')
@@ -36,7 +38,12 @@ RSpec.describe 'landing page' do
         click_link('Authorize on Spotify')
       end
 
-      expect(current_path).to eq("/authorize")
+      fill_in('Email or username', with: id)
+      fill_in('Password', with: pw)
+      click_button('Log In')
+      click_button('Agree')
+
+      expect(current_path).to eq(callback_path)
     end
   end
 end
