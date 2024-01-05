@@ -13,8 +13,7 @@ describe PlaylistController, type: :controller do
         workout: "HIIT"
       }
       post :create, params: params
-
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:found)
     end
   end
 end

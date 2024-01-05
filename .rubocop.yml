@@ -4,3 +4,4 @@ Metrics/BlockLength:
     - describe
     - it
     - context
+    - def

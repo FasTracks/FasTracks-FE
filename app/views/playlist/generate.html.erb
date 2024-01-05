@@ -1,7 +1,7 @@
 <h3>
   Select the options for your playlist
 </h3>
-<%= form_with path: playlist_path, method: "post", class: "form-group" do |f| %>
+<%= form_with url: '/playlist', method: "post", class: "form-group" do |f| %>
   <%= f.hidden_field :token, value: @token %>
 
   <div>
