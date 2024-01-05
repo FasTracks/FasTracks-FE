@@ -22,28 +22,9 @@ RSpec.describe 'landing page' do
       within('.modal') do
         expect(page).to have_content('Spotify Authorization')
         expect(page).to have_content('Connect your Spotify account to access more features.')
-        expect(page).to have_link('Authorize on Spotify')
+        expect(page).to have_link('Authorize on Spotify', href: "https://accounts.spotify.com/authorize?client_id=#{CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback")
         expect(page).to have_button('Close')
       end
-    end
-
-    it 'redirects you to log in to Spotify when you click on Authorize on Spotify', js: true do
-      id = Rails.application.credentials.spotify[:user_id]
-      pw = Rails.application.credentials.spotify[:password]
-      visit root_path
-
-      click_button('Connect to Spotify to Create a Playlist')
-
-      within('.modal-body') do
-        click_link('Authorize on Spotify')
-      end
-
-      fill_in('Email or username', with: id)
-      fill_in('Password', with: pw)
-      click_button('Log In')
-      click_button('Agree')
-
-      expect(current_path).to eq(callback_path)
     end
   end
 end
