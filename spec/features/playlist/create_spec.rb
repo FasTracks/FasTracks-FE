@@ -8,7 +8,7 @@ describe PlaylistController, type: :controller do
 
     it "successfully sends playlist preferences to backend server" do
       params = {
-        tkn: "fakeToken",
+        token: "fakeToken",
         genre: "EDM",
         workout: "HIIT"
       }
