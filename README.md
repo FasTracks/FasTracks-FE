@@ -1,7 +1,6 @@
 # FasTracks-FE
 
-
-FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata for a given workout type.
+FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
 
 ## Getting Started
 
@@ -12,17 +11,33 @@ for notes on deploying the project on a live system.
 ### Prerequisites
 
 Requirements for the software and other tools to build, test and push 
-- [Example 1](https://www.example.com)
-- [Example 2](https://www.example.com)
+- [Spotify API Credentials](https://developer.spotify.com/documentation/web-api/concepts/apps)
+    - Familiarity with OAuth2.0 authorization
+
+### Notes on Data Flow
+This front end portion will conduct OAuth authorization and then pass the data to the backend service responsible for playlist generation.
+
+1.  The front end will authorize for the Spotify user using the following scopes:
+   - `playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private`
+1.  A user access token will be requested after obtaining an authorization token
+   -  This is a background task that will be kicked off once landed on the callback page
+1.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
+   -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
+1.  The expected response from the backend server should be a JSON body response with status code `200`
+   -  ```json
+      test
+      ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development
 environment running
 
-Say what the step will be
+Ensure to install gems; this project uses bootstrap for mobile first dev
 
-    Give the example
+```ruby
+bundle install
+```
 
 And repeat
 
