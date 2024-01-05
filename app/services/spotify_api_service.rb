@@ -15,7 +15,7 @@ class SpotifyApiService
     begin
       response = account_connection.post("/api/token") do |req|
         req.headers["Authorization"] =
-          "Basic #{Base64.strict_encode64("#{SPOTIFY_CLIENT_ID}:#{SPOTIFY_CLIENT_SECRET}")}"
+          "Basic #{Base64.strict_encode64("#{CLIENT_ID}:#{CLIENT_SECRET}")}"
         req.params["grant_type"] = "authorization_code"
         req.params["code"] = code
         req.params["redirect_uri"] = "http://localhost:5000/callback"
