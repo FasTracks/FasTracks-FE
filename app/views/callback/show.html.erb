@@ -6,4 +6,5 @@
   <%= f.select :genre, options_for_select(@genres.map(&:capitalize)) %>
   <%= f.label "Workout Type" %>
   <%= f.select :workout, options_for_select(%w[Strength-Training Cardio HIIT Yoga Recovery]) %>
+  <%= f.submit "Create My Playlist", class: "btn btn-primary" %>
 <% end %>

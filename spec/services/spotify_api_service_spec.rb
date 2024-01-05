@@ -14,9 +14,9 @@ describe "Spotify API service" do
       scope: "playlist-read-private playlist-read-collaborative"
     }
 
-    allow(SpotifyApiService).to receive(:request_token).and_return(expected_response)
+    allow(SpotifyApiService).to receive(:request_token).and_return({data: expected_response})
 
-    response = SpotifyApiService.request_token("validToken")
+    response = SpotifyApiService.request_token("validToken")[:data]
 
     expect(response).to be_a Hash
   end
