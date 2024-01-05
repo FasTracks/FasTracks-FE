@@ -1,7 +1,7 @@
 class FastracksBeService
   def self.submit_playlist(params)
     conn.post("/api/v1/playlists") do |req|
-      req.params["token"] = params[:token]
+      req.params["token"] = params[:tkn]
       req.params["genre"] = params[:genre]
       req.params["workout"] = params[:workout]
     end
