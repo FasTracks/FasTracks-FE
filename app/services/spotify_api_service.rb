@@ -1,15 +1,15 @@
 require "./config/spotify_credentials"
 
 class SpotifyApiService
-
-  def self.authorize
-    account_connection.get("/authorize") do |req|
-      req.params["client_id"] = ENV["SPOTIFY_CLIENT_ID"]
-      req.params["response_type"] = "code"
-      req.params["scope"] = "playlist-modify-private playlist-modify-collaborative"
-      req.params["redirect_uri"] = "http://localhost:5000/callback"
-    end
-  end
+  # This is handled with the Spotify login redirect and not with this ApiService
+  # def self.authorize
+  #   account_connection.get("/authorize") do |req|
+  #     req.params["client_id"] = ENV["SPOTIFY_CLIENT_ID"]
+  #     req.params["response_type"] = "code"
+  #     req.params["scope"] = "playlist-modify-private playlist-modify-collaborative"
+  #     req.params["redirect_uri"] = "http://localhost:5000/callback"
+  #   end
+  # end
 
   def self.request_token(code)
     begin

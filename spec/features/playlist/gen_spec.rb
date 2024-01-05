@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "playlist generation", type: :controller do
+describe "playlist generation" do
   # As a visitor,
   # when I am on the create a playlist page:
   # I see the alert message that I have successfully connected to my Spotify account,
