@@ -3,20 +3,25 @@ class PlaylistController < ApplicationController
     access_token = params[:tkn]
 
     if !access_token.nil?
-      flash[:notice] = "Spotify authorization successful."
+      flash[:success] = "Spotify authorization successful."
       genre_response = SpotifyApiService.get_genres(access_token)
       @genres = genre_response[:data][:genres]
+      @token = access_token
     else
-      flash[:error] = "Spotify authorization failed. #{params[:error]}"
+      flash[:warning] = "Spotify authorization failed. #{params[:error]}"
       redirect_to root_path
     end
   end
 
   def show
     # used to display the playlist to the user
+    # show loading screen until playlist is sent back as response
   end
 
   def create
     # make service call to backend to create playlist; pass params
+    FastracksBeService.submit_playlist(params)
+
+    render :show
   end
 end
