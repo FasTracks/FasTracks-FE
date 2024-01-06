@@ -1,4 +1,4 @@
-class FastracksBeService
+module FastracksBeService
   def self.submit_playlist(params)
     conn.post("/api/v1/playlists") do |req|
       req.params["token"] = params[:token]
