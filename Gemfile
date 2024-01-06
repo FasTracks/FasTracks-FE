@@ -28,6 +28,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "faraday"
+
+gem 'omniauth-spotify'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -76,4 +78,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+
+group :test do
+  gem 'webmock'
 end

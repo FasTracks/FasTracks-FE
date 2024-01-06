@@ -1,9 +1,16 @@
 class FastracksBeService
   def self.submit_playlist(params)
+    data = {
+      token: params[:token],
+      genre: params[:genre],
+      workout: params[:workout],
+      playlist_name: "FasTracks #{params[:genre]} #{params[:workout]}"
+    }
+
+    json_data = data.to_json
     conn.post("/api/v1/playlists") do |req|
-      req.params["token"] = params[:token]
-      req.params["genre"] = params[:genre]
-      req.params["workout"] = params[:workout]
+      req.body = json_data
+      req.headers['Content-Type'] = 'application/json'
     end
   end
 
