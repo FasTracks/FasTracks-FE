@@ -10,6 +10,7 @@ class FastracksBeService
     json_data = data.to_json
     conn.post("/api/v1/playlists") do |req|
       req.body = json_data
+      req.headers['Content-Type'] = 'application/json'
     end
   end
 
