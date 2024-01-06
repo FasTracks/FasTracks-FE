@@ -8,7 +8,7 @@ class FastracksBeService
     }
 
     json_data = data.to_json
-    conn.get("/api/v1/playlists") do |req|
+    conn.post("/api/v1/playlists") do |req|
       req.body = json_data
     end
   end

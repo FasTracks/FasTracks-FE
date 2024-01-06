@@ -10,7 +10,7 @@ describe 'FasTrackBeService' do
     }
     json_data = data.to_json
 
-    stub_request(:get, "http://localhost:3000/api/v1/playlists").
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
     with(
       body: json_data,
       headers: {
@@ -21,7 +21,9 @@ describe 'FasTrackBeService' do
         }).
     to_return(status: 200, body: "", headers: {})
 
-    request = FastracksBeService.submit_playlist(data)
-    expect(JSON.parse(request.env.request_body)).to be_a Hash
+    response = FastracksBeService.submit_playlist(data)
+    expect(JSON.parse(response.env.request_body)).to be_a Hash
   end
+
+
 end

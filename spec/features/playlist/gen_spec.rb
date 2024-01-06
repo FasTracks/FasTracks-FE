@@ -29,4 +29,6 @@ describe "playlist generation" do
 
     expect(page).to have_button("Create My Playlist")
   end
+
+  
 end
