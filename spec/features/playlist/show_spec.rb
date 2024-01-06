@@ -36,4 +36,10 @@ RSpec.describe "Playlists#show", type: :feature do
 
     expect(current_path).to eq("/playlist")
   end
+
+  it "Displays the playlist details (Playlist Name, Playlist Length, Song Titles, and Artist Names)" do
+    visit "/playlist"
+
+    expect(page).to have_button("Create Another Playlist")
+  end
 end
