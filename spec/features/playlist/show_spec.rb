@@ -15,14 +15,14 @@ RSpec.describe "Playlists#show", type: :feature do
   end
 
   it "After selecting a genre and workout, it brings me to the playlist show page" do
-    
-    stub_request(:get, "http://localhost:3000/api/v1/playlists").
+
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
          with(
-           body: {"{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}"=>nil},
+           body: "{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}",
            headers: {
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'Content-Type'=>'application/x-www-form-urlencoded',
+          'Content-Type'=>'application/json',
           'User-Agent'=>'Faraday v2.8.1'
            }).
          to_return(status: 200, body: "", headers: {})

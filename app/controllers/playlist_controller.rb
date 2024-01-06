@@ -3,7 +3,7 @@ class PlaylistController < ApplicationController
     access_token = params[:tkn]
 
     if !access_token.nil?
-      flash.now[:success] = "Spotify authorization successful."
+      flash[:success] = "Spotify authorization successful."
       genre_response = SpotifyApiService.get_genres(access_token)
       @genres = genre_response[:data][:genres]
       @token = access_token
@@ -20,8 +20,12 @@ class PlaylistController < ApplicationController
 
   def create
     # make service call to backend to create playlist; pass params
-    FastracksBeService.submit_playlist(params)
-
-    redirect_to '/playlist'
+    if params[:genre].empty? || params[:workout].empty?
+      redirect_to "/generate_playlist?tkn=#{params[:token]}"
+      flash[:warning] = 'Please select both Genre and Workout'
+    else
+      FastracksBeService.submit_playlist(params)
+      redirect_to '/playlist'
+    end
   end
 end

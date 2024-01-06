@@ -10,18 +10,20 @@ describe 'FasTrackBeService' do
     }
     json_data = data.to_json
 
-    stub_request(:get, "http://localhost:3000/api/v1/playlists").
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
     with(
       body: json_data,
       headers: {
-      'Accept'=>'*/*',
-      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      'Content-Type'=>'application/x-www-form-urlencoded',
-      'User-Agent'=>'Faraday v2.8.1'
-        }).
+     'Accept'=>'*/*',
+     'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+     'Content-Type'=>'application/json',
+     'User-Agent'=>'Faraday v2.8.1'
+      }).
     to_return(status: 200, body: "", headers: {})
 
-    request = FastracksBeService.submit_playlist(data)
-    expect(JSON.parse(request.env.request_body)).to be_a Hash
+    response = FastracksBeService.submit_playlist(data)
+    expect(JSON.parse(response.env.request_body)).to be_a Hash
   end
+
+
 end
