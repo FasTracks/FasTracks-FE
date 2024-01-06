@@ -3,11 +3,12 @@ class FastracksBeService
     data = {
       token: params[:token],
       genre: params[:genre],
-      workout: params[:workout]
+      workout: params[:workout],
+      playlist_name: "FasTracks #{params[:genre]} + #{params[:workout]}"
     }
 
     json_data = data.to_json
-    conn.post("/api/v1/playlists") do |req|
+    conn.get("/api/v1/playlists") do |req|
       req.body = json_data
     end
   end
