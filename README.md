@@ -1,6 +1,18 @@
+# FasTracks 
+FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
+
+The project is following service-oriented architecture and is divided into two different repository:
+  [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
+  [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
+
 # FasTracks-FE
 
-FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
+The frontend application is build using HTML and CSS. This application utilizes Bootstraps as a CSS framework to aid with responsiveness to enable mobile view.  
+
+It also is responsible for authentication via OAuth 2.0. FasTracks-FE requests access to Spotify through the end user, which once the end user grants access, FasTracks is able to receive a access token to create a playlist with end user selected genre and workout type.  Once type of workout and genre is selected, this information is sent to the FasTracks-BE where it handles the API call for genre search and playlist creation using the access token.
+
+
+
 
 ## Getting Started
 
