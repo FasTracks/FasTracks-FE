@@ -1,9 +1,9 @@
 # FasTracks 
 FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
 
-The project is following service-oriented architecture and is divided into two different repository:
-  [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
-  [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
+The project is following service-oriented architecture (SOA) and is divided into two different repository:
+  - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
+  - [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
 
 # FasTracks-FE
 
@@ -13,14 +13,16 @@ It also is responsible for authentication via OAuth 2.0. FasTracks-FE requests a
 
 ## Getting Started
 
-These instructions will give you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on deploying the project on a live system.
+As the FasTracks application is SOA, in order to run the app, both repository will need to be cloned and running in local using localhost:3000 and localhost:5000.
+
+  - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
+  - [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
 
 ### Prerequisites
 
-Requirements for the software and other tools to build, test and push 
-- [Spotify API Credentials](https://developer.spotify.com/documentation/web-api/concepts/apps)
+In order to utilize this app, the user will need to create an app to receive a client ID and client secret through Spotify developer.
+
+  - [Spotify API Credentials](https://developer.spotify.com/documentation/web-api/concepts/apps)
     - Familiarity with OAuth2.0 authorization
 
 ### Notes on Data Flow
@@ -28,19 +30,16 @@ This front end portion will conduct OAuth authorization and then pass the data t
 
 1.  The front end will authorize for the Spotify user using the following scopes:
    - `playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private`
-1.  A user access token will be requested after obtaining an authorization token
+2.  A user access token will be requested after obtaining an authorization token
    -  This is a background task that will be kicked off once landed on the callback page
-1.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
+3.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
    -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
-1.  The expected response from the backend server should be a JSON body response with status code `200`
+4.  The expected response from the backend server should be a JSON body response with status code `200`
    -  ```json
       test
       ```
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development
-environment running
 
 Ensure to install gems; this project uses bootstrap for mobile first dev
 
@@ -48,12 +47,9 @@ Ensure to install gems; this project uses bootstrap for mobile first dev
 bundle install
 ```
 
-And repeat
-
-    until finished
-
-End with an example of getting some data out of the system or using it
-for a little demo
+```
+rails db:{create,migrate}
+```
 
 ## Running the tests
 
@@ -95,12 +91,11 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
 ## Authors
 
-  - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of
-[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
-who participated in this project.
+  - **Edward Avery Rodriguez** - *[LinkedIn](https://www.linkedin.com/in/edward-avery-rodriguez/), [GitHub](https://github.com/TheAveryRodriguez)* 
+  - **Kameron Kennedy** - *[LinkedIn](https://www.linkedin.com/in/kameron-kennedy-pe/), [GitHub](https://github.com/kameronk92)* 
+  - **Scott DeVoss** - *[LinkedIn](https://www.linkedin.com/in/scott-devoss/), [GitHub](https://github.com/scottdevoss)* 
+  - **Sooyung Kim** - *[LinkedIn](https://www.linkedin.com/in/sooyung-kim/), [GitHub](https://github.com/skim1027)* 
+  - **Taylor Pubins** - *[LinkedIn](https://www.linkedin.com/in/trpubins/), [GitHub](https://github.com/trpubz)* 
 
 ## License
 
