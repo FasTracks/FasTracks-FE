@@ -9,10 +9,7 @@ The project is following service-oriented architecture and is divided into two d
 
 The frontend application is build using HTML and CSS. This application utilizes Bootstraps as a CSS framework to aid with responsiveness to enable mobile view.  
 
-It also is responsible for authentication via OAuth 2.0. FasTracks-FE requests access to Spotify through the end user, which once the end user grants access, FasTracks is able to receive a access token to create a playlist with end user selected genre and workout type.  Once type of workout and genre is selected, this information is sent to the FasTracks-BE where it handles the API call for genre search and playlist creation using the access token.
-
-
-
+It also is responsible for authentication via OAuth 2.0. FasTracks-FE requests access to Spotify through the end user, which once the end user grants access, FasTracks is able to create an access token to make a playlist with genre and workout type that the end user selected.  This information is sent to the FasTracks-BE where it handles the API call for genre search and playlist creation using the access token.
 
 ## Getting Started
 
