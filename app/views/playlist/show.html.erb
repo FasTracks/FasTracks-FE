@@ -4,8 +4,50 @@
   <h3>
     <%= button_to 'Create Another Playlist', "/generate_playlist", method: :get, class: 'btn btn-primary mt-3' %>
   </h3>
+</div>
 
-  <% @playlist_info.list_of_songs_and_artist.each do |n| %>
-    <%= n %>
-  <% end %>
+<!-- <div class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="table-responsive-xxl">
+    <table class="transparent-table custom-padding">
+      <thead>
+        <tr>
+          <th scope="col">Track Name</th>
+          <th scope="col">Artist Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @playlist_info.list_of_songs_and_artist.each do |track| %>
+          <tr class="my-30">
+            <td class="px-1"><%= track[0] %></td>
+            <td class="px-1"><%= track[1] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>-->
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="table-responsive-xxl">
+    <table class="transparent-table custom-padding">
+      <thead>
+        <tr>
+          <th scope="col">Track Name</th>
+          <th scope="col">Artist Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @playlist_info.list_of_songs_and_artist.each do |track| %>
+          <tr class="mb-2"><!-- Add margin-bottom between rows -->
+            <td class="px-2 py-1 track-name"><!-- Add padding to cells -->
+              <%= track[0] %>
+            </td>
+            <td class="px-2 py-1 artist-name">
+              <%= track[1] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

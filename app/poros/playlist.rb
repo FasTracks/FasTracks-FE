@@ -21,6 +21,11 @@ class Playlist
     end
     track_and_artist_hash
   end
+
+  # def playlist_name
+  #   @name
+  #   require 'pry'; binding.pry
+  # end
   
   # def album_image
   #   @data

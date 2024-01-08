@@ -13,3 +13,9 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+.track-name {
+  padding-right: 20px; /* Adjust the padding value as needed */
+}
+.artist-name {
+  padding-left: 20px; /* Adjust the padding value as needed */
+}
