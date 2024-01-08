@@ -88,7 +88,7 @@ RSpec.describe "Playlists#show", type: :feature do
 
     expect(current_path).to eq("/playlist")
     expect(page).to have_button("Create Another Playlist")
-    # save_and_open_page
+    save_and_open_page
     expect(page).to have_selector('table')
     expect(page).to have_content('Track Name')
     expect(page).to have_content('Artist Name')
