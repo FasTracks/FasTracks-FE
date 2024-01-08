@@ -22,10 +22,10 @@ class PlaylistController < ApplicationController
     # make service call to backend to create playlist; pass params
     if params[:genre].empty? || params[:workout].empty?
       redirect_to "/generate_playlist?tkn=#{params[:token]}"
-      flash[:warning] = 'Please select both Genre and Workout'
+      flash[:warning] = "Please select both Genre and Workout"
     else
       FastracksBeService.submit_playlist(params)
-      redirect_to '/playlist'
+      redirect_to "/playlist"
     end
   end
 end
