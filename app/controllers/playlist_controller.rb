@@ -23,8 +23,10 @@ class PlaylistController < ApplicationController
       flash[:warning] = 'Please select both Genre and Workout'
       redirect_to "/generate_playlist?tkn=#{params[:token]}"
     else
-      FastracksBeService.submit_playlist(params)
+      response = FastracksBeService.submit_playlist(params)
       redirect_to '/playlist'
+
+      #this is where we receive the data, need to figure out how to pass this response to the playlist show view
     end
   end
 end

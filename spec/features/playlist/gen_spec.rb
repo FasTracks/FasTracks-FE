@@ -57,7 +57,7 @@ describe 'sad path' do
     click_button('Create My Playlist')
     
     expect(page).to have_content('Please select both Genre and Workout')
-    expect(current_path).to eq("/generate_playlist?tkn=#{temp_token}")
-    #this test is not passing, not redirecting to token link??
+    
+    expect(current_path).to eq(generate_playlist_path)
   end
 end

@@ -52,6 +52,4 @@ describe "Spotify API service" do
     
     expect(request).to be_a(Hash)
   end
-
-  it 'returns error '
 end
