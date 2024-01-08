@@ -38,7 +38,7 @@ RSpec.describe "Playlists#show", type: :feature do
     expect(current_path).to eq("/playlist")
   end
 
-  it "Displays the playlist details (Playlist Name, Playlist Length, Song Titles, and Artist Names)" do
+  it "Displays the 'Create Another Playlist' button" do
     json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
     stub_request(:post, "http://localhost:3000/api/v1/playlists")
       .with(
@@ -63,5 +63,32 @@ RSpec.describe "Playlists#show", type: :feature do
     expect(page).to have_button("Create Another Playlist")
     click_button("Create Another Playlist")
     expect(current_path).to eq("/")
+  end
+
+  it "Displays the playlist details (Playlist Name, Playlist Length, Song Titles, and Artist Names)" do
+    json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
+    stub_request(:post, "http://localhost:3000/api/v1/playlists")
+      .with(
+        body: "{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}",
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "Content-Type" => "application/json",
+          "User-Agent" => "Faraday v2.8.1"
+        }
+      )
+      .to_return(status: 200, body: json_response, headers: {})
+
+    visit "/generate_playlist?tkn=fakeToken"
+
+    select "Pop", from: :genre
+    select "Cardio", from: :workout
+
+    click_button("Create My Playlist")
+
+    expect(current_path).to eq("/playlist")
+    expect(page).to have_button("Create Another Playlist")
+    # save_and_open_page
+    expect(page).to have_selector('table')
   end
 end
