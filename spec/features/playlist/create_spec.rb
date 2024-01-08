@@ -4,11 +4,12 @@ describe PlaylistController, type: :controller do
   describe "#create" do
     before(:each) do
       json = File.read('spec/support/fixtures/fastracks/playlist.json')
-      response = JSON.parse(json, symbolize_names: true)
-      allow(FastracksBeService).to receive(:submit_playlist).and_return({status: 200, body: response, headers: {}})
+      faraday_response = double('Faraday::Response', status: 200, body: json, success?: true)
+
+      allow(FastracksBeService).to receive(:submit_playlist).and_return(faraday_response)
     end
 
-    xit "successfully sends playlist preferences to backend server" do
+    it "successfully sends playlist preferences to backend server" do
       params = {
         token: "fakeToken",
         genre: "EDM",
