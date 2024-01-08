@@ -1,4 +1,4 @@
-class FastracksBeService
+module FastracksBeService
   def self.submit_playlist(params)
     data = {
       token: params[:token],
