@@ -13,11 +13,14 @@
   </head>
 
   <body>
-    <% flash.each do |key, message| %>
-      <div class="alert alert-<%= key %>" role="alert"><%= message %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-      </div>
-    <% end %>
-    <%= yield %>
+    <div class="bg-image" style="background-image: url('https://wallpapercave.com/wp/wp2951423.png'); height: 120vh;">  
+
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %>" role="alert"><%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
