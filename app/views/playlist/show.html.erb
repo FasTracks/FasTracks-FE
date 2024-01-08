@@ -4,4 +4,8 @@
   <h3>
     <%= button_to 'Create Another Playlist', "/generate_playlist", method: :get, class: 'btn btn-primary mt-3' %>
   </h3>
+
+  <% @playlist_info.list_of_songs_and_artist.each do |n| %>
+    <%= n %>
+  <% end %>
 </div>
