@@ -15,8 +15,9 @@ class PlaylistController < ApplicationController
   def show
     # used to display the playlist to the user
     # show loading screen until playlist is sent back as response
-    json_response = params[:playlist_info]
+    json_response = session[:data]
     @playlist_info = Playlist.new(json_response)
+    require 'pry'; binding.pry
   end
 
   def create
@@ -26,10 +27,8 @@ class PlaylistController < ApplicationController
       redirect_to "/generate_playlist?tkn=#{params[:token]}"
     else
       response = FastracksBeService.submit_playlist(params)
-      playlist_info = JSON.parse(response.body, symbolize_names: true)
-      
-      redirect_to playlist_path(playlist_info: playlist_info)
-      
+      session[:data] = JSON.parse(response.body, symbolize_names: true)
+      redirect_to playlist_path
       #this is where we receive the data, need to figure out how to pass this response to the playlist show view
     end
   end

@@ -18,7 +18,7 @@
     </div>
     <div>
       <%= f.label "Workout Type" %>
-      <%= f.select :workout, options_for_select(%w[Strength-Training Cardio HIIT Yoga Recovery]),
+      <%= f.select :workout, options_for_select(%w[Strength Endurance HIIT Yoga Restore]),
                   {class: "form-control", prompt: "Select a workout"} %>
     </div>
     <%= f.submit "Create My Playlist", class: "btn btn-primary" %>

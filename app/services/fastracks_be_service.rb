@@ -2,7 +2,7 @@ module FastracksBeService
   def self.submit_playlist(params)
     data = {
       token: params[:token],
-      genre: params[:genre],
+      genre: params[:genre].downcase,
       workout: params[:workout],
       playlist_name: "FasTracks #{params[:genre]} #{params[:workout]}"
     }
