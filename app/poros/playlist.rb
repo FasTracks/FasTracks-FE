@@ -2,7 +2,6 @@ class Playlist
   attr_reader :id, :name, :href, :tracks
 
   def initialize(data)
-    require 'pry'; binding.pry
     @id = data[:id]
     @name = data[:name]
     # @href = data[:href]
