@@ -4,12 +4,9 @@ class Playlist
   def initialize(data)
     @id = data[:id]
     @name = data[:name]
-    # @href = data[:href]
     @url = data[:external_urls][:spotify]
-    # @image = data[:images][:url]
     @total = data[:tracks][:total]
     @data = data
-    # @tracks = data[:tracks][:items]
   end
 
   def list_of_songs_and_artist
