@@ -1,4 +1,4 @@
-# FasTracks 
+# FasTracks README
 FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
 
 The project is following service-oriented architecture (SOA) and is divided into two different repository:
