@@ -1,10 +1,9 @@
 <%= render "app/title" %>
 
 <div class="container-fluid d-flex justify-content-center align-items-center">
-  <h3>
-    
-    <%= button_to 'Create Another Playlist', "/generate_playlist?tkn=#{@token}", method: :get, class: 'btn btn-primary mt-3' %>
-  </h3>
+  <a href="<%= "http://localhost:5000/generate_playlist?tkn=#{@token}"%>"> 
+    <button type="button" class="btn btn-primary">Create Another Playlist</button>
+  </a>
 </div>
 
 <!-- <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -51,4 +50,11 @@
       </tbody>
     </table>
   </div>
+</div>
+
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <a href="<%= @playlist_info.url%>"> 
+    <button type="button" class="btn btn-success">Listen on Spotify</button>
+  </a>
 </div>
