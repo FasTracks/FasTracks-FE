@@ -88,13 +88,29 @@ RSpec.describe "Playlists#show", type: :feature do
     expect(page).to have_selector('table')
     expect(page).to have_content('Track Name')
     expect(page).to have_content('Artist Name')
+    expect(page).to have_content('Api')
+    expect(page).to have_content('Odiseo')
   end
 
-  it 'shows list of songs and artist name' do
-    
-  end
+  it 'has a link that takes you to listen on spotify' do
+    json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
+         with(
+           body: "{\"token\":\"fakeToken\",\"genre\":\"pop\",\"workout\":\"Endurance\",\"playlist_name\":\"FasTracks Pop Endurance\"}",
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'Content-Type'=>'application/json',
+          'User-Agent'=>'Faraday v2.8.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
 
-  it 'takes you to listen on spotify' do
+    visit "/generate_playlist?tkn=fakeToken"
 
+    select "Pop", from: :genre
+    select "Endurance", from: :workout
+
+    click_button("Create My Playlist")
+    expect(page).to have_link('Listen on Spotify', href: 'https://open.spotify.com/playlist/3cEYpjA9oz9GiPac4AsH4n')
   end
 end
