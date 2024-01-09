@@ -1,0 +1,38 @@
+<%= render "app/title" %>
+
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="text-center">
+    <!-- Button to trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#spotifyModal">
+      Connect to Spotify to Create a Playlist
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="spotifyModalLabel">Spotify Authorization</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <!-- Add content for Spotify authentication here -->
+            <p>Connect your Spotify account to access more features.</p>
+            <!-- Example: Redirect button/link for Spotify authentication -->
+            <a href="<%= "https://accounts.spotify.com/authorize?client_id=#{@CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback&scope=playlist-modify-private%20playlist-modify-public"%>"> 
+              <button type="button" class="btn btn-success">Authorize on Spotify</button>
+            </a>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

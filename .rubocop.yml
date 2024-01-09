@@ -1,0 +1,8 @@
+Metrics/BlockLength:
+  IgnoredMethods:
+    - RSpec.describe
+    - describe
+    - it
+    - context
+    - def
+    - if

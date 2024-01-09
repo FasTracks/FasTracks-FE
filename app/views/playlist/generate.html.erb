@@ -1,0 +1,26 @@
+<%= render "app/title" %>
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <h3>
+    Select the options for your playlist
+  </h3>
+</div>
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+
+  <%= form_with url: '/playlist', method: "post", class: "form-group" do |f| %>
+    <%= f.hidden_field :token, value: @token %>
+
+    <div>
+      <%= f.label "Genre" %>
+      <%= f.select :genre, options_for_select(@genres.map(&:capitalize)),
+                  {class: "form-control", prompt: "Select a genre"} %>
+    </div>
+    <div>
+      <%= f.label "Workout Type" %>
+      <%= f.select :workout, options_for_select(%w[Strength Endurance HIIT Yoga Restore]),
+                  {class: "form-control", prompt: "Select a workout"} %>
+    </div>
+    <%= f.submit "Create My Playlist", class: "btn btn-primary" %>
+  <% end %>
+</div>
