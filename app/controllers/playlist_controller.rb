@@ -18,7 +18,7 @@ class PlaylistController < ApplicationController
     data = Rails.cache.read('large_json_data')[:data]
     @playlist_info = Playlist.new(data)
     @token = params[:tkn]
-    Rails.cache.delete('large_json_data')
+    # Rails.cache.delete('large_json_data')
   end
 
   def create

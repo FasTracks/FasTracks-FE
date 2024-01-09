@@ -1,60 +1,79 @@
-<%= render "app/title" %>
+<div class="bg-repeat bg-image" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2Ff%2F0%2Fb%2F833860-download-simple-desktop-wallpaper-1920x1080-for-mac.jpg&f=1&nofb=1&ipt=3ce9940c562796e53dc644aa9078a531454eeb1cf2f02de4f1965545e2cd44b5&ipo=images'); "> 
 
-<div class="container-fluid d-flex justify-content-center align-items-center">
-  <a href="<%= "http://localhost:5000/generate_playlist?tkn=#{@token}"%>"> 
-    <button type="button" class="btn btn-primary">Create Another Playlist</button>
-  </a>
-</div>
+  <%= render "app/title" %>
 
-<!-- <div class="container-fluid d-flex justify-content-center align-items-center">
-  <div class="table-responsive-xxl">
-    <table class="transparent-table custom-padding">
-      <thead>
-        <tr>
-          <th scope="col">Track Name</th>
-          <th scope="col">Artist Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @playlist_info.list_of_songs_and_artist.each do |track| %>
-          <tr class="my-30">
-            <td class="px-1"><%= track[0] %></td>
-            <td class="px-1"><%= track[1] %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="container-fluid py-4 d-flex justify-content-center align-items-center">
+    <a href="<%= "http://localhost:5000/generate_playlist?tkn=#{@token}"%>"> 
+      <button type="button" class="btn btn-primary">Create Another Playlist</button>
+    </a>
   </div>
-</div>-->
 
-<div class="container-fluid d-flex justify-content-center align-items-center">
-  <div class="table-responsive-xxl">
-    <table class="transparent-table custom-padding">
-      <thead>
-        <tr>
-          <th scope="col">Track Name</th>
-          <th scope="col">Artist Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @playlist_info.list_of_songs_and_artist.each do |track| %>
-          <tr class="mb-2"><!-- Add margin-bottom between rows -->
-            <td class="px-2 py-1 track-name"><!-- Add padding to cells -->
-              <%= track[0] %>
-            </td>
-            <td class="px-2 py-1 artist-name">
-              <%= track[1] %>
-            </td>
+  <!-- <div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="table-responsive-xxl">
+      <table class="transparent-table custom-padding">
+        <thead>
+          <tr>
+            <th scope="col">Track Name</th>
+            <th scope="col">Artist Name</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @playlist_info.list_of_songs_and_artist.each do |track| %>
+            <tr class="my-30">
+              <td class="px-1"><%= track[0] %></td>
+              <td class="px-1"><%= track[1] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>-->
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <h3><%= @playlist_info.name %></h3>
   </div>
+  <div class="container-fluid py-4 d-flex justify-content-center align-items-center"> 
+    <h4>Number of Songs: <%= @playlist_info.total %></h4>
+  </div>
+
+  <div class="container-fluid py-4 d-flex justify-content-center align-items-center">
+    <a href="<%= @playlist_info.url%>"> 
+      <button type="button" class="btn btn-success">Listen on Spotify</button>
+    </a>
+  </div>
+
+  <div class="container-fluid py-4 d-flex justify-content-center align-items-center">
+
+  <div class="table-responsive-xxl">
+      <table class="table table-hover table-dark text-center align-middle">
+        <thead>
+          <tr>
+            <th scope='col'>Track #</th>
+            <th scope='col'>Album Image</th>
+            <th scope="col">Track Name</th>
+            <th scope="col">Artist Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @playlist_info.list_of_songs_and_artist[:tracks].each_with_index do |track, index| %>
+            <tr class="mb-2"><!-- Add margin-bottom between rows -->
+              <td>
+                <%= index + 1 %>
+              </td>
+              <td>
+                <img src="<%= track[:image] %>">
+              </td>
+              <td class="px-2 py-1 track-name"><!-- Add padding to cells -->
+                <%= track[:name] %>
+              </td>
+              <td class="px-2 py-1 artist-name">
+                <%= track[:artist] %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
 </div>
 
-
-<div class="container-fluid d-flex justify-content-center align-items-center">
-  <a href="<%= @playlist_info.url%>"> 
-    <button type="button" class="btn btn-success">Listen on Spotify</button>
-  </a>
-</div>
