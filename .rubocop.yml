@@ -5,3 +5,4 @@ Metrics/BlockLength:
     - it
     - context
     - def
+    - if

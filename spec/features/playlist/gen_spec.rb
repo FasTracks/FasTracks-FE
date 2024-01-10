@@ -20,7 +20,7 @@ describe "playlist generation" do
   it "shows a drop down selection for genre and workout type" do
     visit "/generate_playlist?tkn=fakeToken"
 
-    expect(page).to have_select(:workout, with_options: %w[Strength-Training Cardio HIIT Yoga Recovery])
+    expect(page).to have_select(:workout, with_options: %w[Strength Endurance HIIT Yoga Restore])
     expect(page).to have_select(:genre, with_options: %w[Rock Pop Jazz Metal Country Electronic])
   end
 

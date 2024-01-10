@@ -1,4 +1,6 @@
 {
+    "status": 200,
+    "data": {
     "collaborative": false,
     "description": "A playlist for testing pourposes",
     "external_urls": {
@@ -1633,4 +1635,5 @@
     "type": "playlist",
     "uri": "spotify:playlist:3cEYpjA9oz9GiPac4AsH4n",
     "primary_color": null
+    }
 }
