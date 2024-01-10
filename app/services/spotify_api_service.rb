@@ -16,7 +16,7 @@ class SpotifyApiService
           "Basic #{Base64.strict_encode64("#{Rails.application.credentials.spotify[:client_id]}:#{Rails.application.credentials.spotify[:client_secret]}")}"
         req.params["grant_type"] = "authorization_code"
         req.params["code"] = code
-        req.params["redirect_uri"] = "http://localhost:5000/callback"
+        req.params["redirect_uri"] = callback_url
       end
 
       response_conversion(response)
