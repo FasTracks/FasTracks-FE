@@ -33,29 +33,32 @@ In order to utilize this app, the user will need to create an app to receive a c
 This front end portion will conduct OAuth authorization and then pass the data to the backend service responsible for playlist generation.
 
 1.  The front end will authorize for the Spotify user using the following scopes:
-   - `playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private`
+   - `playlist-modify-public playlist-modify-private`
 2.  A user access token will be requested after obtaining an authorization token
    -  This is a background task that will be kicked off once landed on the callback page
 3.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
    -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
 4.  The expected response from the backend server should be a JSON body response with status code `200`
-   -  ```json
-      test
+    ```json 
+    {
+      "status": 200,
+      "data": {
+                "collaborative": false,
+                "description": "A playlist for testing pourposes",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/playlist/3cEYpjA9oz9GiPac4AsH4n"
+                },...
+    }
       ```
 
 ### Installing
 
 Ensure to install gems; this project uses bootstrap for mobile first design
 
-```ruby
-bundle install
-```
-```
-rails db:{create,migrate}
-```
-```
-rails dev:cache
-```
+`bundle install`<br>
+`rails db:{create,migrate}`<br>
+`rails dev:cache`
+
 ## Running the tests `Need to figure out what test to include`
 
 Explain how to run the automated tests for this system
