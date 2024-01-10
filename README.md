@@ -3,7 +3,11 @@ FasTracks provides a streamlined approach to workout playlist generation after a
 
 The project is following service-oriented architecture (SOA) and is divided into two different repository:
   - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
-  - [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
+  - [FasTracks-Backend](https://github.com/FasTracks/FasTracks-BE)
+
+This project is deployed using `fill in the blank`. 
+  - [FasTracks-Frontend]()
+  - [FasTracks-Backend]()
 
 # FasTracks-FE
 
@@ -41,7 +45,7 @@ This front end portion will conduct OAuth authorization and then pass the data t
 
 ### Installing
 
-Ensure to install gems; this project uses bootstrap for mobile first dev
+Ensure to install gems; this project uses bootstrap for mobile first design
 
 ```ruby
 bundle install
@@ -52,7 +56,7 @@ rails db:{create,migrate}
 ```
 rails dev:cache
 ```
-## Running the tests
+## Running the tests `Need to figure out what test to include`
 
 Explain how to run the automated tests for this system
 
@@ -68,23 +72,40 @@ Checks if the best practices and the right coding style has been used.
 
     Give an example
 
+## Screenshots of final product
+### Mobile view:
+
+
+### Desktop view:
+#### Landing page:
+
+
+#### Generate playlist:
+
+
+#### Playlist show page:
+
+
 ## Deployment
 
-Add additional notes to deploy this on a live system
+This project is deployed using `fill in remove heroko if not used`<br >
+  - [FasTracks-Frontend]()
+  - [FasTracks-Backend]()
+  
+<img src="https://logowik.com/content/uploads/images/heroku8748.jpg" alt="drawing" width="100"/>
 
-## Built With
+## Built With `Add gems`
 
-  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
-    for the Code of Conduct
-  - [Creative Commons](https://creativecommons.org/) - Used to choose
-    the license
+<img src="https://mikewilliamson.files.wordpress.com/2010/05/rails_on_ruby.jpg" alt="drawing" width="75"/>
+<img src="https://codekitapp.com/images/help/free-bootstrap-icon@2x.png" alt="drawing" width="100"/>
+<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="250"/>
 
-## Contributing
+## Contributing `need to figure out if we need it`
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
 of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+## Versioning `Need to figure out if we need it`
 
 We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
 available, see the [tags on this
@@ -98,13 +119,13 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
   - **Sooyung Kim** - *[LinkedIn](https://www.linkedin.com/in/sooyung-kim/), [GitHub](https://github.com/skim1027)* 
   - **Taylor Pubins** - *[LinkedIn](https://www.linkedin.com/in/trpubins/), [GitHub](https://github.com/trpubz)* 
 
-## License
+## License `Need to figure out if we need it`
 
 This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
 Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
 details
 
-## Acknowledgments
+## Acknowledgments `Need to figure out if we need it`
 
   - Hat tip to anyone whose code is used
   - Inspiration
