@@ -58,6 +58,7 @@ Ensure to install gems; this project uses bootstrap for mobile first design
 `bundle install`<br>
 `rails db:{create,migrate}`<br>
 `rails dev:cache`
+`update .env file `
 
 ## Running the tests `Need to figure out what test to include`
 
