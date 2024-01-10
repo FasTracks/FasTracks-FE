@@ -46,11 +46,12 @@ Ensure to install gems; this project uses bootstrap for mobile first dev
 ```ruby
 bundle install
 ```
-
 ```
 rails db:{create,migrate}
 ```
-
+```
+rails dev:cache
+```
 ## Running the tests
 
 Explain how to run the automated tests for this system

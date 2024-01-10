@@ -15,6 +15,7 @@ class PlaylistController < ApplicationController
   def show
     # used to display the playlist to the user
     # show loading screen until playlist is sent back as response
+    #need to turn on cache rails dev:cache
     data = Rails.cache.read('large_json_data')[:data]
     @playlist_info = Playlist.new(data)
     @token = params[:tkn]
