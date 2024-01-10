@@ -29,7 +29,7 @@ gem "jbuilder"
 
 gem "faraday"
 
-gem 'omniauth-spotify'
+gem "omniauth-spotify"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -67,6 +67,7 @@ group :development, :test do
   gem "jquery-rails"
   gem "bootstrap", "~> 5.3.2"
   gem "selenium-webdriver"
+  gem "dotenv-rails", "~> 2.8"
 end
 
 group :development do
@@ -80,7 +81,6 @@ group :development do
   # gem "spring"
 end
 
-
 group :test do
-  gem 'webmock'
+  gem "webmock"
 end

@@ -10,13 +10,17 @@ module FastracksBeService
     json_data = data.to_json
     conn.post("/api/v1/playlists") do |req|
       req.body = json_data
-      req.headers['Content-Type'] = 'application/json'
+      req.headers["Content-Type"] = "application/json"
     end
   end
 
   def self.conn
-    Faraday.new(url: "http://localhost:3000/") do |faraday|
+    Faraday.new(url: url) do |faraday|
       faraday.request :url_encoded
     end
+  end
+
+  def self.url
+    ENV["BACKEND_SERVICE_ENDPOINT"]
   end
 end
