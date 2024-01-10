@@ -22,7 +22,7 @@ RSpec.describe "landing page" do
       within(".modal") do
         expect(page).to have_content("Spotify Authorization")
         expect(page).to have_content("Connect your Spotify account to access more features.")
-        expected_href = "https://accounts.spotify.com/authorize?client_id=#{Rails.application.credentials.spotify[:client_id]}&response_type=code&redirect_uri=http://www.example.com/callback&scope=playlist-modify-private%20playlist-modify-public"
+        expected_href = "https://accounts.spotify.com/authorize?client_id=#{Rails.application.credentials.spotify[:client_id]}&response_type=code&redirect_uri=http://localhost/callback&scope=playlist-modify-private%20playlist-modify-public"
         expect(page).to have_link("Authorize on Spotify", href: expected_href)
         expect(page).to have_button("Close")
       end

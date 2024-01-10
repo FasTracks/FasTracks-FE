@@ -72,10 +72,6 @@ class SpotifyApiService
   end
 
   def self.callback_url
-    if Rails.env.test? 
-      Rails.application.routes.url_helpers.callback_url(host: "localhost:5000")
-    else 
-      Rails.application.routes.url_helpers.callback_url
-    end
+    Rails.application.routes.url_helpers.callback_url(host: ENV.fetch("APP_HOST"))
   end
 end
