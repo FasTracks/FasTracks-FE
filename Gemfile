@@ -44,6 +44,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+gem "bootstrap", "~> 5.3.2"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -64,9 +65,8 @@ group :development, :test do
   gem "shoulda-matchers"
   # bootstrap reqs
   gem "dartsass-sprockets"
-  gem "jquery-rails"
-  gem "bootstrap", "~> 5.3.2"
-  gem "selenium-webdriver"
+  # gem "jquery-rails"
+  # gem "selenium-webdriver"
   gem "dotenv-rails", "~> 2.8"
 end
 
