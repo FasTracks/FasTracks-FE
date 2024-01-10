@@ -1,7 +1,5 @@
-require "./config/spotify_credentials"
-
 class WelcomeController < ApplicationController
   def index
-    @CLIENT_ID = CLIENT_ID
+    @CLIENT_ID = Rails.application.credentials.spotify[:client_id]
   end
 end
