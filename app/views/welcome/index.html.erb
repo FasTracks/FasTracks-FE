@@ -1,45 +1,43 @@
-<div class="bg-repeat bg-image" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2Ff%2F0%2Fb%2F833860-download-simple-desktop-wallpaper-1920x1080-for-mac.jpg&f=1&nofb=1&ipt=3ce9940c562796e53dc644aa9078a531454eeb1cf2f02de4f1965545e2cd44b5&ipo=images'); height: 120vh;"> 
-  <%= render "app/title" %>
+<%= render "app/title" %>
 
-  <div class="container-fluid py-5 d-flex justify-content-center align-items-center">
-    <div class="text-center">
-      <!-- Button to trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#spotifyModal">
-        Connect to Spotify to Create a Playlist
-      </button>
+<div class="container-fluid py-5 d-flex justify-content-center align-items-center">
+  <div class="text-center">
+    <!-- Button to trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#spotifyModal">
+      Connect to Spotify to Create a Playlist
+    </button>
 
-      <!-- Modal -->
-      <div class="modal" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="spotifyModalLabel">Spotify Authorization</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+    <!-- Modal -->
+    <div class="modal" id="spotifyModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="spotifyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="spotifyModalLabel">Spotify Authorization</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-            <div class="modal-body">
-              <!-- Add content for Spotify authentication here -->
-              <p>Connect your Spotify account to access more features.</p>
-              <!-- Example: Redirect button/link for Spotify authentication -->
-              <a href="<%= "https://accounts.spotify.com/authorize?client_id=#{@CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback&scope=playlist-modify-private%20playlist-modify-public"%>"> 
-                <button type="button" class="btn btn-success">Authorize on Spotify</button>
-              </a>
-            </div>
+          <div class="modal-body">
+            <!-- Add content for Spotify authentication here -->
+            <p>Connect your Spotify account to access more features.</p>
+            <!-- Example: Redirect button/link for Spotify authentication -->
+            <a href="<%= "https://accounts.spotify.com/authorize?client_id=#{@CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback&scope=playlist-modify-private%20playlist-modify-public"%>"> 
+              <button type="button" class="btn btn-success">Authorize on Spotify</button>
+            </a>
+          </div>
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <div class="container-fluid py-5 d-flex justify-content-center align-items-center">
-    <img src="https://lh3.googleusercontent.com/pw/ABLVV85Nv_15YvZywjhTY-9dcWwe4SXzLbXoyg5sTDVT_IJrAnkQ73laR5bS0CeYof87IUNDYHm_3Kc8y0A2j6Fp2h7oGtyCo7duVdYmUrjFXX1x3NiU10U9wpr5Pdi89d0upzvb3QFW4CBfAj__hly7T9KtiA=w640-h426-s-no-gm?authuser=0" class="img-fluid">
 
   </div>
+</div>
+
+<div class="container-fluid py-5 d-flex justify-content-center align-items-center">
+  <img src="https://lh3.googleusercontent.com/pw/ABLVV85Nv_15YvZywjhTY-9dcWwe4SXzLbXoyg5sTDVT_IJrAnkQ73laR5bS0CeYof87IUNDYHm_3Kc8y0A2j6Fp2h7oGtyCo7duVdYmUrjFXX1x3NiU10U9wpr5Pdi89d0upzvb3QFW4CBfAj__hly7T9KtiA=w640-h426-s-no-gm?authuser=0" class="img-fluid">
+
 </div>
