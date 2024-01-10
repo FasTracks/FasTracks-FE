@@ -16,22 +16,21 @@ RSpec.describe "Playlists#show", type: :feature do
 
   it "After selecting a genre and workout, it brings me to the playlist show page" do
     json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
-    stub_request(:post, "http://localhost:3000/api/v1/playlists")
-      .with(
-        body: "{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}",
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
+      with(
+        body: "{\"token\":\"fakeToken\",\"genre\":\"pop\",\"workout\":\"Endurance\",\"playlist_name\":\"FasTracks Pop Endurance\"}",
         headers: {
-          "Accept" => "*/*",
-          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "Content-Type" => "application/json",
-          "User-Agent" => "Faraday v2.8.1"
-        }
-      )
-      .to_return(status: 200, body: json_response, headers: {})
+      'Accept'=>'*/*',
+      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'Content-Type'=>'application/json',
+      'User-Agent'=>'Faraday v2.8.1'
+        }).
+      to_return(status: 200, body: json_response, headers: {})
 
     visit "/generate_playlist?tkn=fakeToken"
 
     select "Pop", from: :genre
-    select "Cardio", from: :workout
+    select "Endurance", from: :workout
 
     click_button("Create My Playlist")
 
@@ -40,57 +39,78 @@ RSpec.describe "Playlists#show", type: :feature do
 
   it "Displays the 'Create Another Playlist' button" do
     json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
-    stub_request(:post, "http://localhost:3000/api/v1/playlists")
-      .with(
-        body: "{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}",
-        headers: {
-          "Accept" => "*/*",
-          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "Content-Type" => "application/json",
-          "User-Agent" => "Faraday v2.8.1"
-        }
-      )
-      .to_return(status: 200, body: json_response, headers: {})
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
+         with(
+           body: "{\"token\":\"fakeToken\",\"genre\":\"pop\",\"workout\":\"Endurance\",\"playlist_name\":\"FasTracks Pop Endurance\"}",
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'Content-Type'=>'application/json',
+          'User-Agent'=>'Faraday v2.8.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
 
     visit "/generate_playlist?tkn=fakeToken"
 
     select "Pop", from: :genre
-    select "Cardio", from: :workout
+    select "Endurance", from: :workout
 
     click_button("Create My Playlist")
 
     expect(current_path).to eq("/playlist")
     expect(page).to have_button("Create Another Playlist")
-    click_button("Create Another Playlist")
-    expect(current_path).to eq("/")
+    click_link("Create Another Playlist")
+    expect(current_path).to eq("/generate_playlist")
   end
 
   it "Displays the playlist details (Playlist Name, Playlist Length, Song Titles, and Artist Names)" do
     json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
-    stub_request(:post, "http://localhost:3000/api/v1/playlists")
-      .with(
-        body: "{\"token\":\"fakeToken\",\"genre\":\"Pop\",\"workout\":\"Cardio\",\"playlist_name\":\"FasTracks Pop Cardio\"}",
-        headers: {
-          "Accept" => "*/*",
-          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "Content-Type" => "application/json",
-          "User-Agent" => "Faraday v2.8.1"
-        }
-      )
-      .to_return(status: 200, body: json_response, headers: {})
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
+         with(
+           body: "{\"token\":\"fakeToken\",\"genre\":\"pop\",\"workout\":\"Endurance\",\"playlist_name\":\"FasTracks Pop Endurance\"}",
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'Content-Type'=>'application/json',
+          'User-Agent'=>'Faraday v2.8.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
 
     visit "/generate_playlist?tkn=fakeToken"
 
     select "Pop", from: :genre
-    select "Cardio", from: :workout
+    select "Endurance", from: :workout
 
     click_button("Create My Playlist")
 
     expect(current_path).to eq("/playlist")
     expect(page).to have_button("Create Another Playlist")
-    # save_and_open_page
     expect(page).to have_selector('table')
     expect(page).to have_content('Track Name')
     expect(page).to have_content('Artist Name')
+    expect(page).to have_content('Api')
+    expect(page).to have_content('Odiseo')
+  end
+
+  it 'has a link that takes you to listen on spotify' do
+    json_response = File.read('spec/support/fixtures/fastracks/playlist.json')
+    stub_request(:post, "http://localhost:3000/api/v1/playlists").
+         with(
+           body: "{\"token\":\"fakeToken\",\"genre\":\"pop\",\"workout\":\"Endurance\",\"playlist_name\":\"FasTracks Pop Endurance\"}",
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'Content-Type'=>'application/json',
+          'User-Agent'=>'Faraday v2.8.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
+
+    visit "/generate_playlist?tkn=fakeToken"
+
+    select "Pop", from: :genre
+    select "Endurance", from: :workout
+
+    click_button("Create My Playlist")
+    expect(page).to have_link('Listen on Spotify', href: 'https://open.spotify.com/playlist/3cEYpjA9oz9GiPac4AsH4n')
   end
 end

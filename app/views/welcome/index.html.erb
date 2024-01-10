@@ -1,6 +1,6 @@
 <%= render "app/title" %>
 
-<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+<div class="container-fluid py-5 d-flex justify-content-center align-items-center">
   <div class="text-center">
     <!-- Button to trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#spotifyModal">
@@ -22,7 +22,7 @@
             <!-- Add content for Spotify authentication here -->
             <p>Connect your Spotify account to access more features.</p>
             <!-- Example: Redirect button/link for Spotify authentication -->
-            <a href="<%= "https://accounts.spotify.com/authorize?client_id=#{@CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback"%>"> 
+            <a href="<%= "https://accounts.spotify.com/authorize?client_id=#{@CLIENT_ID}&response_type=code&redirect_uri=http://localhost:5000/callback&scope=playlist-modify-private%20playlist-modify-public"%>"> 
               <button type="button" class="btn btn-success">Authorize on Spotify</button>
             </a>
           </div>
@@ -35,4 +35,9 @@
     </div>
 
   </div>
+</div>
+
+<div class="container-fluid py-5 d-flex justify-content-center align-items-center">
+  <img src="https://lh3.googleusercontent.com/pw/ABLVV85Nv_15YvZywjhTY-9dcWwe4SXzLbXoyg5sTDVT_IJrAnkQ73laR5bS0CeYof87IUNDYHm_3Kc8y0A2j6Fp2h7oGtyCo7duVdYmUrjFXX1x3NiU10U9wpr5Pdi89d0upzvb3QFW4CBfAj__hly7T9KtiA=w640-h426-s-no-gm?authuser=0" class="img-fluid">
+
 </div>

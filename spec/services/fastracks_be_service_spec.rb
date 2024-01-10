@@ -13,7 +13,7 @@ describe 'FasTrackBeService' do
 
     stub_request(:post, "http://localhost:3000/api/v1/playlists").
     with(
-      body: json_data,
+      body: "{\"token\":\"fakeToken\",\"genre\":\"edm\",\"workout\":\"HIIT\",\"playlist_name\":\"FasTracks EDM HIIT\"}",
       headers: {
      'Accept'=>'*/*',
      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',

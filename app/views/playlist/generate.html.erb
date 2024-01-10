@@ -11,16 +11,27 @@
   <%= form_with url: '/playlist', method: "post", class: "form-group" do |f| %>
     <%= f.hidden_field :token, value: @token %>
 
-    <div>
-      <%= f.label "Genre" %>
-      <%= f.select :genre, options_for_select(@genres.map(&:capitalize)),
-                  {class: "form-control", prompt: "Select a genre"} %>
+    <div class="form-group row">
+      <label for="colFormLabelLg" class="col-sm-5 col-form-label col-form-label-sm">Genre</label>
+      <div class="col-sm-7">
+        <% cache do %>
+          <%= f.select :genre, options_for_select(@genres.map(&:capitalize)),
+                    {class: "form-control", prompt: "Select a genre"} %>
+        <% end %>
+      </div>
     </div>
-    <div>
-      <%= f.label "Workout Type" %>
-      <%= f.select :workout, options_for_select(%w[Strength-Training Cardio HIIT Yoga Recovery]),
-                  {class: "form-control", prompt: "Select a workout"} %>
+    <div class="form-group row">
+      <label for="colFormLabelLg" class="col-sm-5 col-form-label col-form-label-sm">Workout Type</label>
+      <div class="col-sm-7">
+        <%= f.select :workout, options_for_select(%w[Strength Endurance HIIT Yoga Restore]),
+                    {class: "form-control", prompt: "Select a workout"} %>
+      </div>
     </div>
-    <%= f.submit "Create My Playlist", class: "btn btn-primary" %>
+
+    <div class="form-group row">
+      <div class="col-sm-10 offset-sm-2">
+        <%= f.submit "Create My Playlist", class: "btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
 </div>
