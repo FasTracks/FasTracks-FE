@@ -13,10 +13,8 @@ class SpotifyApiService
 
       response_conversion(response)
     end
-  rescue Faraday::Error => e
-    # You can handle errors here (4xx/5xx responses, timeouts, etc.)
-    puts e.response[:status]
-    puts e.response[:body]
+    rescue Faraday::Error => e 
+      handle_faraday_error(e)
   end
 
   def self.get_user(token)
@@ -27,10 +25,8 @@ class SpotifyApiService
 
       response_conversion(response)
     end
-  rescue Faraday::Error => e
-    # You can handle errors here (4xx/5xx responses, timeouts, etc.)
-    puts e.response[:status]
-    puts e.response[:body]
+    rescue Faraday::Error => e    
+      handle_faraday_error(e)
   end
 
   def self.get_genres(token)
@@ -41,16 +37,12 @@ class SpotifyApiService
 
       response_conversion(response)
     end
-  rescue Faraday::Error => e
-    # You can handle errors here (4xx/5xx responses, timeouts, etc.)
-    puts e.response[:status]
-    puts e.response[:body]
+    rescue Faraday::Error => e
+      handle_faraday_error(e)
   end
 
   def self.account_connection
-    Faraday.new(url: "https://accounts.spotify.com/") do |conn|
-      # conn.request :url_encoded
-    end
+    Faraday.new(url: "https://accounts.spotify.com/") 
   end
 
   def self.conn
@@ -65,5 +57,13 @@ class SpotifyApiService
 
   def self.callback_url
     Rails.application.routes.url_helpers.callback_url(host: ENV.fetch("APP_HOST"))
+  end
+
+  private
+
+  def handle_faraday_error(exception)
+    # You can handle errors here (4xx/5xx responses, timeouts, etc.)
+    puts exception.response[:status]
+    puts exception.response[:body]
   end
 end
