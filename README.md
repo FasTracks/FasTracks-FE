@@ -178,7 +178,7 @@ Contributions are welcome and can be submitted by pull request.
 
 ## Versioning 
 
-The current version of our application is live here on github. 
+The current version (V1) of our application is live here on github.
 
 ## Authors
 
