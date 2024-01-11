@@ -1,7 +1,7 @@
 <%= render "app/title" %>
 
 <div class="container-fluid py-4 d-flex justify-content-center align-items-center">
-  <a href="<%= "http://localhost:5000/generate_playlist?tkn=#{@token}"%>"> 
+  <a href="<%= "#{generate_playlist_url}?tkn=#{@token}"%>"> 
     <button type="button" class="btn btn-primary">Create Another Playlist</button>
   </a>
 </div>

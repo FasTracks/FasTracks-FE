@@ -18,6 +18,7 @@ class PlaylistController < ApplicationController
     # used to display the playlist to the user, data is passed on from PlaylistController create method. Playlist PORO is used to create information used on the show page.
     data = Rails.cache.read('large_json_data')[:data]
     @playlist_info = Playlist.new(data)
+    # require 'pry'; binding.pry
     @token = params[:tkn]
   end
 
@@ -30,6 +31,7 @@ class PlaylistController < ApplicationController
       response = FastracksBeService.submit_playlist(params)
       response_json = JSON.parse(response.body, symbolize_names: true)
       Rails.cache.write('large_json_data', response_json, expires_in: 1.minutes)
+      # require 'pry'; binding.pry
       redirect_to playlist_path(tkn: params[:token])
     end
   end
