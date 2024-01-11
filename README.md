@@ -163,8 +163,7 @@ This project is deployed using heroku [here](https://fastracks-62267ab898ea.hero
 
 ## Contributing 
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
+Contributions are welcome and can be submitted by pull request. 
 
 ## Versioning 
 
