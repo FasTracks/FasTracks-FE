@@ -1,41 +1,51 @@
 # FasTracks README
-FasTracks provides a streamlined approach to workout playlist generation after answering simple questions such as genre preference and workout type.  A playlist is optimized based on bpm, danceability, and similar metadata based on user preference.
+FasTracks provides a streamlined approach to workout playlist generation. Once the user selects genre preference and workout type, they are provided with an optimized playlist using metadata from Spotify, and criteria held in the FasTracks backend.
 
-The project is following service-oriented architecture (SOA) and is divided into two different repository:
-  - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
+The project follows service-oriented architecture (SOA) and is divided into two different repositories:
+  - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE) (you are here)
   - [FasTracks-Backend](https://github.com/FasTracks/FasTracks-BE)
 
-This project is deployed using `fill in the blank`. 
-  - [FasTracks-Frontend]()
-  - [FasTracks-Backend]()
+This application is deployed using heroku, and is available to select users [here](https://fastracks-62267ab898ea.herokuapp.com/) 
+
 
 # FasTracks-FE
 
-The frontend application is build using HTML and CSS. This application utilizes Bootstraps as a CSS framework to aid with responsiveness to enable mobile view.  
+FasTracks-FE uses Bootstraps as a CSS framework to aid with responsiveness to enable mobile view. HTML is also used.   
 
-It also is responsible for authentication via OAuth 2.0. FasTracks-FE requests access to Spotify through the end user, which once the end user grants access, FasTracks is able to create an access token to make a playlist with genre and workout type that the end user selected.  This information is sent to the FasTracks-BE where it handles the API call for genre search and playlist creation using the access token.
+FasTracks-FE is responsible for user authentication via OAuth 2.0. FasTracks-FE requests the user authorize access to specific Spotify endpoints. Once the user grants access, FasTracks-FE recieves an access token to make API calls to Spotify on behalf of the user. FasTracks-FE requests and caches available genre seeds from Spotify, and presents the user with a selection of over 50 genres and 5 workouts. Once the user clicks `generate playlist`, a POST request is sent to FasTracks-BE. FasTracks-FE recieves a JSON response that includes all the important playlist details, as well as a link to the playlist within the user's Spotify account. The playlist details are rendered in a mobile-friendly view, showing the user track order, album artwork, track name and artist name. A button is rendered to link the user to the playlist within their Spotify. Within a few seconds, the user is able to create a unique playlist and start their workout. 
 
 ## Getting Started
 
-As the FasTracks application is SOA, in order to run the app, both repository will need to be cloned and running in local using localhost:3000 and localhost:5000.
+The fastest way to start working out using FasTracks is to visit our deployed app [here](https://fastracks-62267ab898ea.herokuapp.com/).
 
-  - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE)
-  - [Backend-Backend](https://github.com/FasTracks/FasTracks-BE)
+If you would like to run the application locally, you will need Rails 7.X.X and to clone both [FasTracks-FE](https://github.com/FasTracks/FasTracks-FE) and [FasTracks-BE](https://github.com/FasTracks/FasTracks-BE), since the application follows service-oriented architecture. Within each repo, follow the steps below. 
+
+1. `bundle install`
+2. `rails db:{drop,create,migrate,seed}`
+3. `bundle exec rspec`
+4. `rails s`
+
+Then, in your browser, visit `localhost:5000` and follow the prompts on screen. 
+
+*Due to development constraints from Spotify, FasTracks is currently limited to invite-only users. Please message one of our contributors with to be added to our list of approved users. Please be sure to include the email address associated with your Spotify account. Alternatively, users may create their own app through [Spotify's developer portal](https://developer.spotify.com/documentation/web-api/concepts/apps) and reconfigure the Client ID and Client Secret in their local copy of the FE repo.*
+
 
 ### Prerequisites
 
-In order to utilize this app, the user will need to create an app to receive a client ID and client secret through Spotify developer.
+For the fastest startup, we recommend visiting the deployed app [here](https://fastracks-62267ab898ea.herokuapp.com/).
 
-  - [Spotify API Credentials](https://developer.spotify.com/documentation/web-api/concepts/apps)
-    - Familiarity with OAuth2.0 authorization
+However, if you prefer to get your hands dirty and understand our app, feel free to fork and clone this repo as well as [FasTracks-BE](https://github.com/FasTracks/FasTracks-BE). We recommend a basic understanding of the following concepts before diving in to our code:
+
+- Ruby on Rails Applications
+- Service oriented architecture
+- Spotify API
+- Oauth 2.0
 
 ### Notes on Data Flow
-This front end portion will conduct OAuth authorization and then pass the data to the backend service responsible for playlist generation.
 
-1.  The front end will authorize for the Spotify user using the following scopes:
+1.  FasTracks-FE authorizes the user on Spotify and recieves an Auth Token, for the following scopes on Spotify:
    - `playlist-modify-public playlist-modify-private`
-2.  A user access token will be requested after obtaining an authorization token
-   -  This is a background task that will be kicked off once landed on the callback page
+2.  A user access token is requested from Spotify after obtaining an authorization token. This is a background task that is kicked off once the user is on the callback page.
 3.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
    -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
 4.  The expected response from the backend server should be a JSON body response with status code `200`
@@ -50,6 +60,7 @@ This front end portion will conduct OAuth authorization and then pass the data t
                 },...
     }
       ```
+  5. FasTracks-FE renders the playlist data in a mobile-friendly view, with a button to the new playlist on Spotify. 
 
 ### Installing
 
@@ -60,21 +71,53 @@ Ensure to install gems; this project uses bootstrap for mobile first design
 `rails dev:cache`
 `update .env file `
 
-## Running the tests `Need to figure out what test to include`
+## Running the tests 
 
-Explain how to run the automated tests for this system
+Follow commands below to run the app test suite. 
+
+`bundle install`<br>
+`bundle exec rspec`
 
 ### Sample Tests
 
-Explain what these tests test and why
+The test below is within the `spec/features/landing_page_spec.rb` file, and is used to test the view contents and formatting on our app's landing page. The following items are considered within the test:
 
-    Give an example
+- The app name
+- A button to connect to Spotify
+- The correct link for spotify authorization
+- A button to close the modal.
 
-### Style test
+These are essential features to test because the user would simply not be able to use the app without them. 
 
-Checks if the best practices and the right coding style has been used.
+```
+    describe "Landing Page" do
+    # US 1
+    # -As a visitor, when I visit the landing page, I see a button to Connect to Spotify to Create a Playlist
+    # -When you click on the button, it takes you to sign into your Spotify account
+    # -Once you sign in, it redirects you to create a playlist page
 
-    Give an example
+    it "has a app name and a button that requests Spotify access" do
+      visit root_path
+
+      expect(page).to have_content("FasTracks")
+      expect(page).to have_button("Connect to Spotify to Create a Playlist")
+    end
+
+    it "has a button for Spotify Authorization and Close when you click on Connect to Spotify to Create a Playlist" do
+      visit root_path
+
+      click_button("Connect to Spotify to Create a Playlist")
+
+      within(".modal") do
+        expect(page).to have_content("Spotify Authorization")
+        expect(page).to have_content("Connect your Spotify account to access more features.")
+        expected_href = "https://accounts.spotify.com/authorize?client_id=#{Rails.application.credentials.spotify[:client_id]}&response_type=code&redirect_uri=http://localhost/callback&scope=playlist-modify-private%20playlist-modify-public"
+        expect(page).to have_link("Authorize on Spotify", href: expected_href)
+        expect(page).to have_button("Close")
+      end
+    end
+  end
+```
 
 ## Screenshots of final product
 ### Mobile view:
