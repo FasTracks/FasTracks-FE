@@ -21,13 +21,16 @@ The fastest way to start working out using FasTracks is to visit our deployed ap
 If you would like to run the application locally, you will need Rails 7.X.X and to clone both [FasTracks-FE](https://github.com/FasTracks/FasTracks-FE) and [FasTracks-BE](https://github.com/FasTracks/FasTracks-BE), since the application follows service-oriented architecture. Within each repo, follow the steps below. 
 
 1. `bundle install`
-2. `rails db:{drop,create,migrate,seed}`
-3. `bundle exec rspec`
-4. `rails s`
+2. `rails db:{drop,create}` note: no data is stored in the db but required for server spin up
+3. `rails dev:cache` -- enables caching in dev environment
+4. `bundle exec rspec` -- to see results of TDD
+5. update .env file 
+   1. place your callback uri in the appropriate variable (localhost:5000 if running locally, else the hosted url)
+6. `rails server`
 
-Then, in your browser, visit `localhost:5000` and follow the prompts on screen. 
+Then, in your browser, visit `localhost:5000` and follow the prompts on screen.
 
-*Due to development constraints from Spotify, FasTracks is currently limited to invite-only users. Please message one of our contributors with to be added to our list of approved users. Please be sure to include the email address associated with your Spotify account. Alternatively, users may create their own app through [Spotify's developer portal](https://developer.spotify.com/documentation/web-api/concepts/apps) and reconfigure the Client ID and Client Secret in their local copy of the FE repo.*
+*Due to development constraints from Spotify, FasTracks is currently limited to invite-only users. Please message one of our contributors with to be added to our list of approved users. Please be sure to include the email address associated with your Spotify account. Alternatively, users may create their own app through [Spotify's developer portal](https://developer.spotify.com/documentation/web-api/concepts/apps) and reconfigure the Client ID and Client Secret in their local copy of the FE repo `rails credentials:edit`.  Don't forget to add the appropriate callback uris in your Spotify's App*
 
 
 ### Prerequisites
@@ -38,8 +41,8 @@ However, if you prefer to get your hands dirty and understand our app, feel free
 
 - Ruby on Rails Applications
 - Service oriented architecture
-- Spotify API
 - Oauth 2.0
+- Spotify API
 
 ### Notes on Data Flow
 
@@ -68,14 +71,13 @@ Ensure to install gems; this project uses bootstrap for mobile first design
 
 `bundle install`<br>
 `rails db:{create,migrate}`<br>
-`rails dev:cache`
-`update .env file `
+`rails dev:cache`<br>
+update .env file
 
 ## Running the tests 
 
 Follow commands below to run the app test suite. 
 
-`bundle install`<br>
 `bundle exec rspec`
 
 ### Sample Tests
@@ -89,21 +91,21 @@ The test below is within the `spec/features/landing_page_spec.rb` file, and is u
 
 These are essential features to test because the user would simply not be able to use the app without them. 
 
-```
+```ruby
     describe "Landing Page" do
     # US 1
-    # -As a visitor, when I visit the landing page, I see a button to Connect to Spotify to Create a Playlist
-    # -When you click on the button, it takes you to sign into your Spotify account
-    # -Once you sign in, it redirects you to create a playlist page
+    # - As a visitor, when I visit the landing page, I see a button to Connect to Spotify to Create a Playlist
+    # - When you click on the button, it takes you to sign into your Spotify account
+    # - Once you sign in, it redirects you to create a playlist page
 
-    it "has a app name and a button that requests Spotify access" do
+    it "has an app name and a button that requests Spotify access" do
       visit root_path
 
       expect(page).to have_content("FasTracks")
       expect(page).to have_button("Connect to Spotify to Create a Playlist")
     end
 
-    it "has a button for Spotify Authorization and Close when you click on Connect to Spotify to Create a Playlist" do
+    it "has a button for Spotify Authorization and closes when you click on Connect to Spotify to Create a Playlist" do
       visit root_path
 
       click_button("Connect to Spotify to Create a Playlist")
@@ -154,6 +156,7 @@ This project is deployed using heroku [here](https://fastracks-62267ab898ea.hero
 - Spotify API
 - Ruby on Rails
 - Bootstrap
+- Faraday
 - Capybara
 - Webmock
 
