@@ -33,5 +33,6 @@ module FasTracksFe
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.action_controller.default_url_options = { host: ENV.fetch("APP_HOST") }
   end
 end

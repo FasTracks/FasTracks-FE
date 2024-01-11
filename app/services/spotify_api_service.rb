@@ -1,5 +1,3 @@
-require "./config/spotify_credentials"
-
 class SpotifyApiService
   # This is handled with the Spotify login redirect and not with this ApiService
 
@@ -7,10 +5,10 @@ class SpotifyApiService
     begin
       response = account_connection.post("/api/token") do |req|
         req.headers["Authorization"] =
-          "Basic #{Base64.strict_encode64("#{CLIENT_ID}:#{CLIENT_SECRET}")}"
+          "Basic #{Base64.strict_encode64("#{Rails.application.credentials.spotify[:client_id]}:#{Rails.application.credentials.spotify[:client_secret]}")}"
         req.params["grant_type"] = "authorization_code"
         req.params["code"] = code
-        req.params["redirect_uri"] = "http://localhost:5000/callback"
+        req.params["redirect_uri"] = callback_url
       end
 
       response_conversion(response)
@@ -63,5 +61,9 @@ class SpotifyApiService
 
   def self.response_conversion(response)
     {status: response.status, data: JSON.parse(response.body, symbolize_names: true)}
+  end
+
+  def self.callback_url
+    Rails.application.routes.url_helpers.callback_url(host: ENV.fetch("APP_HOST"))
   end
 end

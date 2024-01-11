@@ -23,7 +23,7 @@ RSpec.describe "Playlists#show", type: :feature do
       'Accept'=>'*/*',
       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
       'Content-Type'=>'application/json',
-      'User-Agent'=>'Faraday v2.8.1'
+      'User-Agent'=>'Faraday v2.9.0'
         }).
       to_return(status: 200, body: json_response, headers: {})
 
@@ -46,7 +46,7 @@ RSpec.describe "Playlists#show", type: :feature do
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
           'Content-Type'=>'application/json',
-          'User-Agent'=>'Faraday v2.8.1'
+          'User-Agent'=>'Faraday v2.9.0'
            }).
          to_return(status: 200, body: json_response, headers: {})
 
@@ -72,7 +72,7 @@ RSpec.describe "Playlists#show", type: :feature do
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
           'Content-Type'=>'application/json',
-          'User-Agent'=>'Faraday v2.8.1'
+          'User-Agent'=>'Faraday v2.9.0'
            }).
          to_return(status: 200, body: json_response, headers: {})
 
@@ -101,7 +101,7 @@ RSpec.describe "Playlists#show", type: :feature do
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
           'Content-Type'=>'application/json',
-          'User-Agent'=>'Faraday v2.8.1'
+          'User-Agent'=>'Faraday v2.9.0'
            }).
          to_return(status: 200, body: json_response, headers: {})
 
