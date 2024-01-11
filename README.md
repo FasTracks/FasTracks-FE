@@ -119,44 +119,56 @@ These are essential features to test because the user would simply not be able t
   end
 ```
 
-## Screenshots of final product
+## FasTracks Screenshots
 ### Mobile view:
 
+[![FasTracks Mobile View](https://img.youtube.com/vi/mR6c5VnBfA8/0.jpg)](https://www.youtube.com/watch?v=mR6c5VnBfA8)
 
 ### Desktop view:
-#### Landing page:
 
+#### Landing page:
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/e72fef45-2c1c-4658-87c5-1d52ab68e5cf">
+
+<img width="1435" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/d0df3ffc-4bfd-4539-87da-8a546b1059a8">
 
 #### Generate playlist:
 
+<img width="1440" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/c475a109-b149-4da7-b1eb-99a9bb5a213e">
+
+<img width="1438" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/76cd2caa-bd56-4ca5-b58b-8346b32e5c3e">
+
+<img width="722" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/961e8eaa-da35-43dc-9f5a-1521b62522a0">
 
 #### Playlist show page:
 
+<img width="1439" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/cf08e622-d2f4-49a3-b07a-5f74e8d2e424">
 
 ## Deployment
 
-This project is deployed using `fill in remove heroko if not used`<br >
-  - [FasTracks-Frontend]()
-  - [FasTracks-Backend]()
+This project is deployed using heroku [here](https://fastracks-62267ab898ea.herokuapp.com/) 
   
 <img src="https://logowik.com/content/uploads/images/heroku8748.jpg" alt="drawing" width="100"/>
 
-## Built With `Add gems`
+## Built With 
+
+- Spotify API
+- Ruby on Rails
+- Bootstrap
+- Capybara
+- Webmock
 
 <img src="https://mikewilliamson.files.wordpress.com/2010/05/rails_on_ruby.jpg" alt="drawing" width="75"/>
 <img src="https://codekitapp.com/images/help/free-bootstrap-icon@2x.png" alt="drawing" width="100"/>
 <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="250"/>
 
-## Contributing `need to figure out if we need it`
+## Contributing 
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
 of conduct, and the process for submitting pull requests to us.
 
-## Versioning `Need to figure out if we need it`
+## Versioning 
 
-We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
+The current version of our application is live here on github. 
 
 ## Authors
 
@@ -166,14 +178,12 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
   - **Sooyung Kim** - *[LinkedIn](https://www.linkedin.com/in/sooyung-kim/), [GitHub](https://github.com/skim1027)* 
   - **Taylor Pubins** - *[LinkedIn](https://www.linkedin.com/in/trpubins/), [GitHub](https://github.com/trpubz)* 
 
-## License `Need to figure out if we need it`
+## License 
 
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
+This project is not licensed and is open source. 
 
-## Acknowledgments `Need to figure out if we need it`
+## Acknowledgments 
 
-  - Hat tip to anyone whose code is used
-  - Inspiration
-  - etc
+  - Technical direction and consultation provded by [Jamison Ordway](https://github.com/jamisonordway) and [Chris Simmons](https://github.com/cjsim89)
+  - This project completed by Mod 3 students at [Turing School of Software and Design](https://turing.edu/)
+  - Little Caesar's Pizza for providing the most calories per dollar within 0.5 miles of [kameronk92's](https://github.com/kameronk92) house
