@@ -129,19 +129,19 @@ These are essential features to test because the user would simply not be able t
 #### Landing page:
 <img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/e72fef45-2c1c-4658-87c5-1d52ab68e5cf">
 
-<img width="1435" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/d0df3ffc-4bfd-4539-87da-8a546b1059a8">
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/d0df3ffc-4bfd-4539-87da-8a546b1059a8">
+
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/c475a109-b149-4da7-b1eb-99a9bb5a213e">
 
 #### Generate playlist:
 
-<img width="1440" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/c475a109-b149-4da7-b1eb-99a9bb5a213e">
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/76cd2caa-bd56-4ca5-b58b-8346b32e5c3e">
 
-<img width="1438" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/76cd2caa-bd56-4ca5-b58b-8346b32e5c3e">
-
-<img width="722" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/961e8eaa-da35-43dc-9f5a-1521b62522a0">
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/961e8eaa-da35-43dc-9f5a-1521b62522a0">
 
 #### Playlist show page:
 
-<img width="1439" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/cf08e622-d2f4-49a3-b07a-5f74e8d2e424">
+<img width="714" alt="image" src="https://github.com/FasTracks/FasTracks-FE/assets/138252060/cf08e622-d2f4-49a3-b07a-5f74e8d2e424">
 
 ## Deployment
 
