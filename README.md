@@ -48,7 +48,7 @@ However, if you prefer to get your hands dirty and understand our app, feel free
 
 1.  FasTracks-FE authorizes the user on Spotify and recieves an Auth Token, for the following scopes on Spotify:
    - `playlist-modify-public playlist-modify-private`
-2.  A user access token is requested from Spotify after obtaining an authorization token. This is a background task that is kicked off once the user is on the callback page.
+2.  A user access token is requested from Spotify after obtaining an authorization token. This is a sequential process that is kicked off once the user hits the callback controller action.
 3.  Once the user selects the playlist preferences (genre, workout type, etc.), that data will be sent to the backend service via query params:
    -  `HTTP://<backendurl/path>?code=<USER_ACCESS_TOKEN>&genre=<SELECTED_GENRE>&workout=<SELECTED_WORKOUT>`
 4.  The expected response from the backend server should be a JSON body response with status code `200`
@@ -63,7 +63,15 @@ However, if you prefer to get your hands dirty and understand our app, feel free
                 },...
     }
       ```
-  5. FasTracks-FE renders the playlist data in a mobile-friendly view, with a button to the new playlist on Spotify. 
+  5. FasTracks-FE renders the playlist data in a mobile-friendly view, with a button to the new playlist on Spotify.
+  6. Requesting an Access Token:
+
+```bash
+curl -X POST "https://accounts.spotify.com/api/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -H "Authorization: Basic <base64 encoded client_id:client_secret>" \
+     -d "grant_type=client_credentials&code=<code returned from the auth request>&redirect_uri<matching URI>"
+```
 
 ### Installing
 
@@ -161,8 +169,8 @@ This project is deployed using heroku [here](https://fastracks-62267ab898ea.hero
 - Webmock
 
 <img src="https://mikewilliamson.files.wordpress.com/2010/05/rails_on_ruby.jpg" alt="drawing" width="75"/>
-<img src="https://codekitapp.com/images/help/free-bootstrap-icon@2x.png" alt="drawing" width="100"/>
-<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="250"/>
+<img src="https://codekitapp.com/images/help/free-bootstrap-icon@2x.png" alt="drawing" width="75"/>
+<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="75"/>
 
 ## Contributing 
 
