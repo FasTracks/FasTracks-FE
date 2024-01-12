@@ -5,8 +5,9 @@ The project follows service-oriented architecture (SOA) and is divided into two 
   - [FasTracks-Frontend](https://github.com/FasTracks/FasTracks-FE) (you are here)
   - [FasTracks-Backend](https://github.com/FasTracks/FasTracks-BE)
 
-This application is deployed using heroku, and is available to select users [here](https://fastracks-62267ab898ea.herokuapp.com/) 
+FasTracks FE APP fits into our projects SOA by providing a clean interface for users to plug into our FasTracks BE API to functions on web and mobile. As opposed to a monolithic app, we can easily update, adjust and even overhaul  our front end without worry of disrupting any back end logic.
 
+This application is deployed using heroku, and is available to select users [here](https://fastracks-62267ab898ea.herokuapp.com/) 
 
 # FasTracks-FE
 
